@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 16:05:25 by vketteni          #+#    #+#             */
-/*   Updated: 2023/11/14 12:44:16 by vketteni         ###   ########.fr       */
+/*   Created: 2023/11/14 13:34:17 by vketteni          #+#    #+#             */
+/*   Updated: 2023/11/14 13:58:23 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stddef.h>
 
-int ft_isalpha.c (unsigned int c)
+size_t ft_strlen(char* str)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-		return (1);
-	return (0);
+	int count;
+	count = 0;
+	while (*(str + count))
+		count++;
+	return (count);
 }
 
 /*
 #include <stdio.h>
-void main (void)
+#include <string.h>
+int main (void)
 {
-	char c;
-	c = 'b';
-	printf(ft_isalpha(c));
+        char* c;
+        c = "";
+        printf("%ld\n", ft_strlen(c));
+        printf("%ld\n", strlen(c));
 }
 */

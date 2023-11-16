@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 16:05:25 by vketteni          #+#    #+#             */
-/*   Updated: 2023/11/14 12:44:16 by vketteni         ###   ########.fr       */
+/*   Created: 2023/11/14 14:31:14 by vketteni          #+#    #+#             */
+/*   Updated: 2023/11/14 14:39:55 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isalpha.c (unsigned int c)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-		return (1);
-	return (0);
-}
+	char *d = dst;
+	const char *s = src;
 
-/*
-#include <stdio.h>
-void main (void)
-{
-	char c;
-	c = 'b';
-	printf(ft_isalpha(c));
+	while(n--)
+		*d++ = *s++;
+	return (d);
 }
-*/

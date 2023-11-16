@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 16:05:25 by vketteni          #+#    #+#             */
-/*   Updated: 2023/11/14 12:44:16 by vketteni         ###   ########.fr       */
+/*   Created: 2023/11/14 14:19:22 by vketteni          #+#    #+#             */
+/*   Updated: 2023/11/14 14:30:47 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stddef.h>
 
-int ft_isalpha.c (unsigned int c)
+void ft_bzero(void* s, size_t n)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-		return (1);
-	return (0);
+	char *p = s;
+	while(n--)
+		*p++ = 0;
 }
-
-/*
-#include <stdio.h>
-void main (void)
-{
-	char c;
-	c = 'b';
-	printf(ft_isalpha(c));
-}
-*/

@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 16:05:25 by vketteni          #+#    #+#             */
-/*   Updated: 2023/11/14 12:44:16 by vketteni         ###   ########.fr       */
+/*   Created: 2023/11/14 13:20:04 by vketteni          #+#    #+#             */
+/*   Updated: 2023/11/14 13:33:45 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isalpha.c (unsigned int c)
+int ft_isprint(unsigned int c)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+	if (c >= 32 && c <= 126)
 		return (1);
 	return (0);
 }
 
 /*
 #include <stdio.h>
-void main (void)
+#include <ctype.h>
+int main (void)
 {
-	char c;
-	c = 'b';
-	printf(ft_isalpha(c));
+	unsigned char c;
+	c = 128;
+	printf("%d\n", ft_isprint(c));
+	printf("%d\n", isprint(c));
 }
 */
