@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 14:40:48 by vketteni          #+#    #+#             */
-/*   Updated: 2023/11/16 12:50:38 by vketteni         ###   ########.fr       */
+/*   Created: 2023/11/16 14:58:09 by vketteni          #+#    #+#             */
+/*   Updated: 2023/11/16 15:35:06 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memmove(void *dst, const void *src, size_t n)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	unsigned char	*d;
-	const unsigned char	*s;
-	d = dst;
-	s = src;
-
-	if (d == s || n == 0)
-		return (dest);
-	if (d < s || d >= s + n)
+	size_t	i;
+	
+	if (*little == '\0')
+		return (big);
+	while (*big && len > 0)
 	{
-		while (n--)
-			*d++ = *s++;
+		i = 0;
+		while (big[i] == little[i] && little[i] && i < len)
+			i++;
+		if (little[i] == '\0')
+			return ((char *)big);
+		big++;
+		len--;
 	}
-	else
-	{
-		d += (n - 1);
-		s += (n - 1);
-		while (n--)
-			*(d--) = *(s--);
-	}
-	return (dst);
+	return (0);
 }

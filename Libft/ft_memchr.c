@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 14:40:48 by vketteni          #+#    #+#             */
-/*   Updated: 2023/11/16 12:50:38 by vketteni         ###   ########.fr       */
+/*   Created: 2023/11/16 14:04:17 by vketteni          #+#    #+#             */
+/*   Updated: 2023/11/16 14:41:18 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memmove(void *dst, const void *src, size_t n)
+void	*ft_memchr(void *src, char chr, size_t n)
 {
-	unsigned char	*d;
 	const unsigned char	*s;
-	d = dst;
-	s = src;
+	unsigned char	c;
 
-	if (d == s || n == 0)
-		return (dest);
-	if (d < s || d >= s + n)
+	s = src;
+	c = (unsigned char)chr;
+	
+	while (n > 0)
 	{
-		while (n--)
-			*d++ = *s++;
+		if (*s == c)
+			return ((void *)s);
+		s++;
+		n--;
 	}
-	else
-	{
-		d += (n - 1);
-		s += (n - 1);
-		while (n--)
-			*(d--) = *(s--);
-	}
-	return (dst);
+	return (0);
 }

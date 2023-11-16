@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 14:40:48 by vketteni          #+#    #+#             */
-/*   Updated: 2023/11/16 12:50:38 by vketteni         ###   ########.fr       */
+/*   Created: 2023/11/16 14:41:36 by vketteni          #+#    #+#             */
+/*   Updated: 2023/11/16 14:55:47 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memmove(void *dst, const void *src, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	unsigned char	*d;
-	const unsigned char	*s;
-	d = dst;
-	s = src;
+	const unsigned char	*str1;
+	const unsigned char	*str2;
 
-	if (d == s || n == 0)
-		return (dest);
-	if (d < s || d >= s + n)
+	str1 = s1;
+	str2 = s2;
+	while (n > 0 && (*str1 || *str2))
 	{
-		while (n--)
-			*d++ = *s++;
+		if (*str1 != *str2)
+			return (*str1 - *str2);
+		str1++;
+		str2++;
+		n--;
 	}
-	else
-	{
-		d += (n - 1);
-		s += (n - 1);
-		while (n--)
-			*(d--) = *(s--);
-	}
-	return (dst);
+	return (0);
 }
