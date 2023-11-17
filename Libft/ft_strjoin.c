@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/16 13:19:54 by vketteni          #+#    #+#             */
-/*   Updated: 2023/11/17 12:53:38 by vketteni         ###   ########.fr       */
+/*   Created: 2023/11/17 14:13:13 by vketteni          #+#    #+#             */
+/*   Updated: 2023/11/17 14:41:22 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <libft.h>
 
-#ifndef LIBFT_H
-#define LIBFT_H
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*joined_string;
+	size_t	suffix_len;
+	size_t	prefix_len;
+	size_t	arr_size;
 
-size_t	ft_strlen(char* str);
-int	ft_isdigit(unsigned int c);
-int     ft_strncmp(char *s1, char *s2, size_t n);
-
-
-#endif
+	arr_size = suffix_len + prefix_len + 1;
+	joined_string = malloc(arr_size);
+	if (joined_string == 0)
+		return (0);
+	ft_strlcpy(joined_string, s1, arr_size);
+	ft_strlcat(joined_string, s2, arr_size);
+	return (joined_string);
+}
