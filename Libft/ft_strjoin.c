@@ -6,7 +6,7 @@
 /*   By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 14:13:13 by vketteni          #+#    #+#             */
-/*   Updated: 2023/11/17 14:41:22 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/11/20 10:15:38 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <libft.h>
@@ -14,11 +14,9 @@
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*joined_string;
-	size_t	suffix_len;
-	size_t	prefix_len;
 	size_t	arr_size;
 
-	arr_size = suffix_len + prefix_len + 1;
+	arr_size = ft_strlen(s1) + ft_strlen(s2) + 1;
 	joined_string = malloc(arr_size);
 	if (joined_string == 0)
 		return (0);
