@@ -9,8 +9,8 @@
 /*   Updated: 2023/11/17 14:02:30 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <libft.h>
-
+#include "libft.h"
+#include <stdlib.h>
 char	*ft_strdup(const char *s)
 {
 	char	*string_duplicate;
@@ -18,10 +18,10 @@ char	*ft_strdup(const char *s)
 
 	if (s == 0)
 		return (0);
-	arr_size = ft_strlen(s) + 1;
+	arr_size = ft_strlen((char *)s) + 1;
 	string_duplicate = (char *)malloc(arr_size);
 	if (string_duplicate == 0)
 		return (0);
-	ft_strlcpy(string_duplicate, s, arr_size);
+	ft_strlcpy(string_duplicate, (char *)s, arr_size);
 	return (string_duplicate);
 }

@@ -9,7 +9,7 @@
 /*   Updated: 2023/11/14 14:30:47 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stddef.h>
+#include <stdlib.h>
 
 void ft_bzero(void* s, size_t n)
 {

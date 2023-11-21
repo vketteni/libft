@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	toupper(unsigned int c)
+int	ft_toupper(unsigned int c)
 {
 	if (c >= 'a' && c <= 'z')
 		c -= ('a' - 'A');

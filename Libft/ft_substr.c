@@ -9,12 +9,14 @@
 /*   Updated: 2023/11/20 10:10:15 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
+#include <stdlib.h>
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*substring;
 
-	if (start < 0 || start >= ft_strlen(s))
+	if (start >= ft_strlen((char *)s))
 		return (0);
 	substring = (char *)malloc(len + 1);
 	if (substring == 0)

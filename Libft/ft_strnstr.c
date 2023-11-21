@@ -9,13 +9,14 @@
 /*   Updated: 2023/11/16 15:35:06 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include <stddef.h>
+#include <stdlib.h>
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
-	
+
 	if (*little == '\0')
-		return (big);
+		return ((char *)big);
 	while (*big && len > 0)
 	{
 		i = 0;

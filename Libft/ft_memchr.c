@@ -9,6 +9,7 @@
 /*   Updated: 2023/11/16 14:41:18 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stdlib.h>
 
 void	*ft_memchr(void *src, char chr, size_t n)
 {

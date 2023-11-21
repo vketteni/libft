@@ -9,7 +9,7 @@
 /*   Updated: 2023/11/16 14:55:47 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include <stddef.h>
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	const unsigned char	*str1;

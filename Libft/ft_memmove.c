@@ -9,7 +9,7 @@
 /*   Updated: 2023/11/16 12:50:38 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include <stdlib.h>
 void	*ft_memmove(void *dst, const void *src, size_t n)
 {
 	unsigned char	*d;
@@ -18,7 +18,7 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 	s = src;
 
 	if (d == s || n == 0)
-		return (dest);
+		return (dst);
 	if (d < s || d >= s + n)
 	{
 		while (n--)

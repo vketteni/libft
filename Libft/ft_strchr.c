@@ -13,7 +13,7 @@
 char	*ft_strchr(const char *src, char c)
 {
 	char	*ptr;
-	ptr = src;
+	ptr = (char *)src;
 
 	while (*(ptr) != c && *(ptr) != 0)
 		ptr++;
