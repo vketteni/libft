@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include <stddef.h>
 
-size_t ft_strlen(char* str)
+size_t ft_strlen(const char *str)
 {
 	int count;
 	count = 0;
