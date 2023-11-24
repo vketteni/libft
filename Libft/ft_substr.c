@@ -6,7 +6,7 @@
 /*   By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 14:03:33 by vketteni          #+#    #+#             */
-/*   Updated: 2023/11/21 13:50:13 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/11/24 16:17:14 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -17,8 +17,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*substring;
 	char	*ptr;
 
-	if (start > ft_strlen((char *)s))
+	if (s == 0)
 		return (0);
+	if (start > ft_strlen(s))
+		return (ft_strdup(""));
+	if (len > ft_strlen(s + start))
+		len = ft_strlen(s + start);
 	substring = (char *)malloc(len + 1);
 	if (substring == 0)
 		return (0);
@@ -28,3 +32,15 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	*ptr = '\0';
 	return (substring);
 }
+
+/*
+#include <stdio.h>
+#include <string.h>
+int	main(void)
+{
+
+	char s[] = "long-word";
+	printf("%s\n", ft_substr(s, ft_strlen(s), ft_strlen(s)));	
+	return (0);
+}
+*/

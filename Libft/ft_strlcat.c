@@ -6,7 +6,7 @@
 /*   By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 12:25:20 by vketteni          #+#    #+#             */
-/*   Updated: 2023/11/16 12:26:39 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/11/24 16:48:46 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ size_t	ft_strlcat(char *dst, char *src, size_t dst_size)
     i = 0;
     j = 0;
 
-    while (dst[i])
+    while (dst[i] && i < dst_size)
         i++;
     if (i < dst_size)
     {

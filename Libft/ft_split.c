@@ -14,8 +14,8 @@
 #include "libft.h"
 #include <stddef.h>
 
-//char **ft_get_result_array(const char *s, char c);
-//void	ft_allocation_error(char **array);
+char **ft_get_result_array(const char *s, char c);
+void	ft_allocation_error(char **array);
 
 char	**ft_split(char const *s, char c)
 {

@@ -6,15 +6,13 @@
 /*   By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 13:34:17 by vketteni          #+#    #+#             */
-/*   Updated: 2023/11/24 11:34:31 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/11/24 14:54:46 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
 
 size_t ft_strlen(const char *str)
 {
-	if (str == 0)
-		return (0);
 	char	*start;
 	start = (char *)str;
 	while (*(str))

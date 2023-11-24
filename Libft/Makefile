@@ -1,66 +1,39 @@
-# Makefile
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/11/24 14:06:54 by vketteni          #+#    #+#              #
+#    Updated: 2023/11/24 14:51:40 by vketteni         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-# Compiler
-CC = gcc
+NAME = libft.a
+CC = gcc 
+CFLAGS = -Wall -Wextra -Werror
+SRC = ft_tolower.c ft_isdigit.c ft_strlen.c ft_isalnum.c ft_strrchr.c ft_strmapi.c ft_memcpy.c ft_strjoin.c ft_strnstr.c ft_isascii.c ft_calloc.c ft_substr.c ft_striteri.c ft_itoa.c ft_bzero.c ft_memcmp.c ft_strdup.c ft_strncmp.c ft_toupper.c ft_putchar_fd.c ft_isprint.c ft_isalpha.c ft_memmove.c ft_strlcat.c ft_strtrim.c ft_putnbr_fd.c ft_lstmap.c ft_atoi.c ft_memchr.c ft_strchr.c ft_strlcpy.c ft_split.c ft_putstr_fd.c ft_memset.c ft_putendl_fd.c
 
-# Compiler flags
-CFLAGS = -Wall -Wextra -pedantic -g
+BONUS_SRC = ft_lstsize.c ft_lstdelone.c ft_lstnew.c ft_lstiter.c ft_lstclear.c ft_lstadd_back.c ft_lstadd_front.c ft_lstlast.c 
 
-# Target executable
-TARGET = my_program
+OBJ = $(SRC:.c=.o)
+BONUS_OBJ = $(BONUS_SRC:.c=.o)
 
-# Source files
-SOURCES = ft_split.c ft_strnstr.c ft_isdigit.c ft_strlcpy.c ft_strlen.c ft_memcmp.c ft_strchr.c ft_bzero.c ft_strjoin.c ft_isascii.c ft_memcpy.c ft_isprint.c ft_toupper.c ft_strrchr.c ft_isalpha.c ft_memchr.c ft_memset.c ft_substr.c ft_strncmp.c ft_strtrim.c ft_memmove.c ft_strlcat.c ft_calloc.c ft_strdup.c ft_atoi.c ft_isalnum.c ft_tolower.c ft_itoa.c
+all:	$(NAME)
 
-# Header files
-HEADERS = libft.h
+$(NAME):	$(OBJ)
+	ar rcs $@ $^
 
-all: $(TARGET)
-
-$(TARGET): $(SOURCES) $(HEADERS)
-	$(CC) $(CFLAGS) -o $(TARGET) $(SOURCES)
-
-clean:
-# Makefile
-
-# Compiler
-CC = gcc
-
-# Compiler flags
-CFLAGS = -Wall -Wextra -pedantic
-
-# Target executable
-TARGET = libft.a
-
-# Source files
-SOURCES = main.c ft_strnstr.c ft_isdigit.c ft_strlcpy.c ft_strlen.c ft_memcmp.c \
-          ft_strchr.c ft_bzero.c ft_strjoin.c ft_isascii.c ft_memcpy.c ft_isprint.c \
-          ft_toupper.c ft_strrchr.c ft_isalpha.c ft_memchr.c ft_memset.c ft_substr.c \
-          ft_strncmp.c ft_strtrim.c ft_memmove.c ft_strlcat.c ft_calloc.c ft_strdup.c \
-          ft_atoi.c ft_isalnum.c ft_tolower.c
-
-# Bonus source files
-BONUS_SOURCES = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
-                ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
-
-# Header files
-HEADERS = libft.h
-
-# Object files
-OBJS = $(SOURCES:.c=.o)
-
-all: $(TARGET)
-
-$(TARGET): $(OBJS) $(HEADERS)
-	$(AR) rcs $(TARGET) $(OBJS)
-
-%.o: %.c
+%.o:	%.c
 	$(CC) $(CFLAGS) -c $< -o $@
-
-bonus: $(OBJS) $(BONUS_SOURCES) $(HEADERS)
-	$(CC) $(CFLAGS) -c $(BONUS_SOURCES)
-	$(AR) rcs $(TARGET) $(OBJS) $(BONUS_SOURCES:.c=.o)
-
 clean:
-	rm -f $(TARGET) $(OBJS) $(BONUS_SOURCES:.c=.o)
-	rm -f $(TARGET)
+	rm -f $(OBJ) $(BONUS_OBJ)
+
+fclean:	clean
+	rm -f $(NAME)
+
+re:	fclean all
+
+bonus:	$(BONUS_OBJ)
+	ar rcs $(NAME) $^
