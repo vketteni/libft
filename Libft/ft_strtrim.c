@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
-int	ft_char_in_set(char const c, char const *set);
+//int	ft_char_in_set(char const c, char const *set);
 
 char	*ft_strtrim(char const *s1, char const *set)
 {

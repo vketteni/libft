@@ -12,10 +12,10 @@
 #include <stdlib.h>
 #include "libft.h"
 
-void	*ft_reverse_array(void *s, size_t len);
-char    *ft_make_atoi_arr(size_t arr_size);
-char    *ft_itoa_conversion(char *arr, long n, size_t arr_size, int is_negative);
-char    *ft_add_negative_sign(char *ascii_nbr, size_t arr_size);
+//void	*ft_reverse_array(void *s, size_t len);
+//char    *ft_make_atoi_arr(size_t arr_size);
+//char    *ft_itoa_conversion(char *arr, long n, size_t arr_size, int is_negative);
+//char    *ft_add_negative_sign(char *ascii_nbr, size_t arr_size);
 
 char	*ft_itoa(int n)
 {
