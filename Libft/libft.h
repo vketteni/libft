@@ -10,13 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
+typedef struct  s_list
+{
+    void    *content;
+    struct s_list   *next;
+}   t_list;
 #ifndef LIBFT_H
 #define LIBFT_H
 
 char    *ft_strnstr(const char *big, const char *little, size_t len);
 int     ft_isdigit(unsigned int c);
 size_t  ft_strlcpy(char *dst, char *src, size_t dst_size);
-size_t  ft_strlen(char* str);
+size_t  ft_strlen(const char *str);
 int     ft_memcmp(const void *s1, const void *s2, size_t n);
 char    *ft_strchr(const char *src, char c);
 void    ft_bzero(void* s, size_t n);
