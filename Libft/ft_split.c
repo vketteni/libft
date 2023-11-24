@@ -6,7 +6,7 @@
 /*   By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 11:15:25 by vketteni          #+#    #+#             */
-/*   Updated: 2023/11/20 14:21:51 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/11/21 15:00:22 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -14,7 +14,6 @@
 #include "libft.h"
 #include <stddef.h>
 
-//char	*ft_substr(char const *s, unsigned int start, size_t len);
 char **ft_get_result_array(const char *s, char c);
 void	ft_allocation_error(char **array);
 
@@ -41,6 +40,7 @@ char	**ft_split(char const *s, char c)
 			if (result[i] == 0)
 				ft_allocation_error(result);
 			i++;
+
 			start = ptr + 1;
 			position += (len + 1);
 		}
@@ -85,14 +85,19 @@ char	**ft_get_result_array(char const *s, char c)
 	return (result);
 }
 
+/*
 int	main()
 {
 	char	**result;
 	int i;
-	char string[] = "hel-lo";
+	char string[] = "-he-l--lo-";
 	result = ft_split(string, '-');
 	i = 0;
 	while (result[i])
-		printf("%s", result[i++]);
+	{
+		printf("result[%d] = '%s'", i, result[i]);
+		i++;
+	}
 	return (0);
 }
+*/

@@ -6,7 +6,7 @@
 /*   By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 13:19:54 by vketteni          #+#    #+#             */
-/*   Updated: 2023/11/17 12:53:38 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/11/21 15:09:23 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
@@ -40,5 +40,6 @@ char    *ft_strdup(const char *s);
 int     ft_atoi(const char *nptr);
 int     ft_isalnum(unsigned int c);
 int     ft_tolower(unsigned int c);
+char    *ft_itoa(int n);
 
 #endif

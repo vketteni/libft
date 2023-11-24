@@ -6,18 +6,20 @@
 /*   By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 13:34:17 by vketteni          #+#    #+#             */
-/*   Updated: 2023/11/14 13:58:23 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/11/21 13:13:58 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
 
-size_t ft_strlen(char* str)
+size_t ft_strlen(const char* str)
 {
-	int count;
-	count = 0;
-	while (*(str + count))
-		count++;
-	return (count);
+	if (str == 0)
+		return (0);
+	char	*start;
+	start = (char *)str;
+	while (*(str))
+		str++;
+	return (str - start);
 }
 
 /*
