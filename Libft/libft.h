@@ -6,14 +6,14 @@
 /*   By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 13:19:54 by vketteni          #+#    #+#             */
-/*   Updated: 2023/11/24 14:45:44 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/11/26 15:12:19 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 # ifndef LIBFT_H
 # define LIBFT_H
 
-# include	<stddef.h>
-# include	"libft.h"
+# include <stdlib.h>
+# include <unistd.h>
 
 typedef struct  s_list
 {
@@ -47,7 +47,7 @@ void    ft_lstiter(t_list *lst, void (*f)(void *));
 void    ft_putchar_fd(char c, int fd);
 void    ft_lstclear(t_list **lst, void (*del)(void*));
 int ft_isprint(unsigned int c);
-int ft_isalpha (unsigned int c);
+int ft_isalpha (int c);
 void	*ft_memmove(void *dst, const void *src, size_t n);
 size_t	ft_strlcat(char *dst, char *src, size_t dst_size);
 char	*ft_strtrim(char const *s1, char const *set);

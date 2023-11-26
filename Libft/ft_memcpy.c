@@ -6,7 +6,7 @@
 /*   By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 14:31:14 by vketteni          #+#    #+#             */
-/*   Updated: 2023/11/14 14:39:55 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/11/26 15:37:06 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
@@ -18,5 +18,5 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 
 	while(n--)
 		*d++ = *s++;
-	return (d);
+	return (dst);
 }
