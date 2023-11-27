@@ -6,7 +6,7 @@
 /*   By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:36:10 by vketteni          #+#    #+#             */
-/*   Updated: 2023/11/26 13:38:50 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/11/27 14:14:27 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -34,20 +34,25 @@ int	ft_atoi(const char *nptr)
 	return (result * is_negative);
 }
 
+
 /*
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 int	main(void)
 {
+        char    *nbr_buffer; 
+        size_t  buffer_size = 15; 
+
+        if (!(nbr_buffer = (char *) malloc(sizeof(char) * buffer_size)))
+                return (0); 
+        ft_memset(dst, 0, buffer_size);
+
+// Testing string with escape characters infront of the digits.
 	char escape[] = "\n\t\v\r\f ";
 	char integer[] = "1";
-	char	*arr = (char *)malloc(sizeof(char) * (ft_strlen(escape) + ft_strlen(integer)) + 1);
-	if (arr == 0)
-		return (0);
-	ft_memset(arr, '0', ft_strlen(escape) + ft_strlen(integer));
-	ft_strlcpy(arr, escape, ft_strlen(arr) + 1);
-	ft_strlcat(arr, integer, ft_strlen(arr) + 1);
+	ft_strlcpy(nbr_buffer, escape, ft_strlen(arr) + 1);
+	ft_strlcat(nbr_buffer, integer, ft_strlen(arr) + 1);
 	printf("%d\n", ft_atoi(arr));
 }
 */
