@@ -34,8 +34,6 @@ int	ft_atoi(const char *nptr)
 	return (result * is_negative);
 }
 
-
-/*
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -47,12 +45,55 @@ int	main(void)
         if (!(nbr_buffer = (char *) malloc(sizeof(char) * buffer_size)))
                 return (0); 
         ft_memset(dst, 0, buffer_size);
-
+// int	ft_atoi(const char *nptr)
 // Testing string with escape characters infront of the digits.
-	char escape[] = "\n\t\v\r\f ";
-	char integer[] = "1";
-	ft_strlcpy(nbr_buffer, escape, ft_strlen(arr) + 1);
-	ft_strlcat(nbr_buffer, integer, ft_strlen(arr) + 1);
-	printf("%d\n", ft_atoi(arr));
+	if (false)
+	{
+		char escape[] = "\n\t\v\r\f ";
+		char integer[] = "1";
+		ft_strlcpy(nbr_buffer, escape, ft_strlen(arr) + 1);
+		ft_strlcat(nbr_buffer, integer, ft_strlen(arr) + 1);
+		printf("%d\n", ft_atoi(arr));
+	}
+
+// Testing negative number
+	if (false)
+	{
+
+	}
+// Testing positive number
+	if (false)
+	{
+
+	}
+// Testing integer min
+	if (false)
+	{
+
+	}
+// Testing integer max
+	if (false)
+	{
+
+	}
+// Testing bad char at the start
+	if (false)
+	{
+
+	}
+// Testing bad char after whitespace
+	if (false)
+	{
+
+	}
+// Testing bad char after sign
+	if (false)
+	{
+
+	}
+// Testing bad char after number
+	if (false)
+	{
+
+	}
 }
-*/
