@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "libft.h"
 #include <stddef.h>
-size_t ft_strlcpy(char *dst, char *src, size_t dst_size)
+size_t ft_strlcpy(char *dst, const char *src, size_t dst_size)
 {
     size_t i;
     i = 0;

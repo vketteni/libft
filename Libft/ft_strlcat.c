@@ -12,26 +12,16 @@
 
 # include "libft.h"
 
-size_t	ft_strnlen(char *s, size_t n)
-{
-	size_t	i;
-
-	i = 0;
-	while (*(s + i) && i <= n)
-		i++;
-	return (i);
-}
-
-size_t	ft_strlcat(char *dst, char *src, size_t dst_size)
+size_t	ft_strlcat(char *dst, const char *src, size_t dst_size)
 {
 	size_t dst_len;
 	size_t src_len;
 	size_t space_left;
 	size_t chars_to_copy;
-	
+
 	src_len = ft_strlen(src);
 	dst_len = ft_strlen(dst);
-	
+
 	if (dst_size <= dst_len)
 		return (dst_size + src_len);
 	space_left = dst_size - dst_len - 1;
@@ -39,8 +29,7 @@ size_t	ft_strlcat(char *dst, char *src, size_t dst_size)
 	if (src_len >= space_left)
 		chars_to_copy = space_left;
 	ft_strlcpy(dst + dst_len, src, chars_to_copy + 1);
-	while (dst_len + chars_to_copy < dst_size - 1)
-		dst[dst_len + chars_to_copy++] = '\0';
+	dst[dst_len + chars_to_copy] = 0;
 	return (dst_len + src_len);
 }
 
@@ -50,16 +39,16 @@ size_t	ft_strlcat(char *dst, char *src, size_t dst_size)
 #include <unistd.h>
 int	main(void)
 {
-	char	*dst; 
+	char	*dst;
 	size_t	buffer_size = 15;
 
 	if (!(dst = (char *) malloc(sizeof(char) * buffer_size)))
-		return (0); 
+		return (0);
 	ft_memset(dst, 0, buffer_size);
 	ft_memset(dst, 'r', 6);
 // Testing the function when there is enough space in the destination buffer to ccat the source string.
 	if (111)
-	{	
+	{
 		dst[11] = 'a';
 		printf("%ld\n", ft_strlcat(dst, "lorem", buffer_size));
 		write(1, dst, buffer_size);
