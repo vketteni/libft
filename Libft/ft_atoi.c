@@ -21,11 +21,11 @@ int	ft_atoi(const char *nptr)
 		nptr++;	
 	if (ft_strncmp((char *)nptr, "2147483648", 10) == 0)
 		return (INT_MIN);
-	is_negative = 1;
+	is_negative = 0;
 	if (*nptr == '-' || *nptr == '+')
 	{
 		if (*nptr == '-')
-			is_negative = -1;
+			is_negative = 1;
 		nptr++;
 	}	
 	result = 0;
@@ -34,7 +34,7 @@ int	ft_atoi(const char *nptr)
         result *= 10;
         result += (*(nptr++) - '0');
     }
-	return (result * is_negative);
+	return (result * (1 + (is_negative * -2)));
 }
 
 /*
