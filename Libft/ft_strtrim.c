@@ -9,7 +9,7 @@
 /*   Updated: 2023/11/20 11:14:38 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
+# include "libft.h"
 
 int	ft_char_in_set(char const c, char const *set)
 {
@@ -30,6 +30,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	while (*s1 && ft_char_in_set(*s1, set))
 		s1++;
+	if (*s1 == '\0')
+		return (ft_strdup(""));
 	start = (char *)s1;
 	while (*s1)
 		s1++;
@@ -101,6 +103,16 @@ int	main(void)
 	char *result_6 = ft_strtrim(s1_6, set_6);
 	printf("Test Case 6: Testing trim with no match in set.\n");
 	printf("Result:\t\t'%s'\nExpected:\t'%s'\nPass:\t\t%s\n\n", result_6, expected_6, strcmp(result_6, expected_6) == 0 ? "Yes" : "No");
+
+	// Test Case 7: Testing trim with match on every char in string.
+	const char	*s1_7 = "XXAAXXAA";
+	const char	*set_7 = "AX";
+	const char *expected_7 = "";
+	char *result_7 = ft_strtrim(s1_7, set_7);
+	printf("Test Case 7: Testing trim with match on every char in string.\n");
+	printf("Result:\t\t'%s'\n", result_7);
+	printf("Expected:\t'%s'\n", expected_7);
+	printf("Passed:\t\t'%s'\n", strcmp("", result_7) == 0 ? "Yes" : "No");
 
 	return 0;
 }

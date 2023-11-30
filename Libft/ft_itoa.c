@@ -12,25 +12,53 @@
 #include <stdlib.h>
 #include "libft.h"
 
-static char	*ft_add_negative_sign(char *ascii_nbr, size_t arr_size)
+static char	*ft_add_negative_sign(char *n_in_ascii, long n)
 {
+	size_t i;
 	size_t last_index;
-
-	last_index = arr_size - 2;
-	while (last_index-- > 0)
-		ascii_nbr[last_index + 1] = ascii_nbr[last_index];
-	ascii_nbr[0] = '-';
-	return (ascii_nbr);
+	while (n)
+	{
+		i++;
+		n /= 10;
+	}
+	last_index = ++i;
+	while (0 < last_index--)
+		n_in_ascii[last_index + 1] = n_in_ascii[last_index];
+	n_in_ascii[0] = '-';
+	return (n_in_ascii);
 }
 
-static char	*ft_make_atoi_arr(size_t arr_size)
+static size_t	ft_get_nbr_len()
+{
+	size_t	i;
+
+	i  = 0;
+	while (n)
+	{
+		i++;
+		n /= 10;
+	}
+	if (is_negative)
+		i++;
+	return (i);
+}
+
+static char	*ft_get_nbr_buffer(long n, int is_negative)
 {
 	char	*arr;
+	size_t	len;
 
-	arr = ft_calloc(arr_size, sizeof(char));
-	if (arr == 0)
+	len  = 0;
+	while (n)
+	{
+		i++;
+		n /= 10;
+	}
+	if (is_negative)
+		i++;
+	if (!(arr = ft_calloc(len + 1, sizeof(char))))
 		return (0);
-	arr[arr_size - 1] = '\0';
+	arr[len] = '\0';
 	return (arr);
 }
 
@@ -53,47 +81,45 @@ static void	*ft_reverse(void *s, size_t len)
 	return (src);
 }
 
-char	*ft_itoa_conversion(char *arr, long n, size_t arr_size, int is_negative)
+char	*ft_itoa_conversion(long n, int is_negative)
 {
+	char *buffer;
 	size_t	i;
-	size_t	last_index;
+	size_t	len;
 
+	len = ft_get_nbr_len(n, is_negative);
+	if (!(buffer = ft_get_nbr_buffer(n, is_negative)))
+		return (0);
 	i = 0;
 	while (n > 0)
 	{
-		arr[i++] = '0' + (n % 10);
+		buffer[i++] = '0' + (n % 10);
 		n /= 10;
 	}
-	last_index = arr_size - 2;
-	while (arr[last_index] == 0)
-		last_index--;
-	ft_reverse(arr, last_index + 1);
+	ft_reverse(buffer, len);
 	if (is_negative)
-		ft_add_negative_sign(arr, arr_size);
-	return (arr);
+		ft_add_negative_sign(buffer, len + 1);
+	return (buffer);
 }
 
 char	*ft_itoa(int n)
 {
 	char	*result;
-	size_t	arr_size;
 	int	is_negative;
 	long	nbr;
 
-	if (n == 0)
-		return (ft_strdup("0"));
-	is_negative = 0;
 	nbr = (long)n;
+	if (nbr == 0) {
+		return (ft_strdup("0"));
+	}
+	is_negative = 0;
 	if (nbr < 0)
 	{
 		is_negative = 1;
 		nbr = -nbr;
 	}
-	arr_size = 12;
-	result = ft_make_atoi_arr(arr_size);
-	if (result == 0)
+	if (!(result = ft_itoa_conversion(nbr, is_negative)))
 		return (0);
-	ft_itoa_conversion(result, nbr, arr_size, is_negative);
 	return (result);
 }
 
@@ -101,13 +127,12 @@ char	*ft_itoa(int n)
 #include <limits.h>
 #include <string.h>
 
-/*
 int	main()
 {
 	char	*result;
 	int n;
 	char *expected;
-
+	// gcc -g -o my_program ft_itoa.c ft_calloc.c ft_strdup.c ft_memset.c ft_strlen.c ft_strlcpy.c
 	// char	*ft_itoa(int n)
 	n = -9;
 	expected = "-9";
@@ -146,4 +171,3 @@ int	main()
 
 	return (0);
 }
-*/
