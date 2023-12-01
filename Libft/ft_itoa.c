@@ -12,35 +12,15 @@
 #include <stdlib.h>
 #include "libft.h"
 
-static char	*ft_add_negative_sign(char *n_in_ascii, long n)
+static char	*ft_add_negative_sign(char *n_in_ascii, size_t len)
 {
-	size_t i;
 	size_t last_index;
-	while (n)
-	{
-		i++;
-		n /= 10;
-	}
-	last_index = ++i;
+
+	last_index = len - 1;
 	while (0 < last_index--)
 		n_in_ascii[last_index + 1] = n_in_ascii[last_index];
 	n_in_ascii[0] = '-';
 	return (n_in_ascii);
-}
-
-static size_t	ft_get_nbr_len()
-{
-	size_t	i;
-
-	i  = 0;
-	while (n)
-	{
-		i++;
-		n /= 10;
-	}
-	if (is_negative)
-		i++;
-	return (i);
 }
 
 static char	*ft_get_nbr_buffer(long n, int is_negative)
@@ -51,11 +31,11 @@ static char	*ft_get_nbr_buffer(long n, int is_negative)
 	len  = 0;
 	while (n)
 	{
-		i++;
+		len++;
 		n /= 10;
 	}
 	if (is_negative)
-		i++;
+		len++;
 	if (!(arr = ft_calloc(len + 1, sizeof(char))))
 		return (0);
 	arr[len] = '\0';
@@ -84,16 +64,14 @@ static void	*ft_reverse(void *s, size_t len)
 char	*ft_itoa_conversion(long n, int is_negative)
 {
 	char *buffer;
-	size_t	i;
 	size_t	len;
 
-	len = ft_get_nbr_len(n, is_negative);
 	if (!(buffer = ft_get_nbr_buffer(n, is_negative)))
 		return (0);
-	i = 0;
+	len = 0;
 	while (n > 0)
 	{
-		buffer[i++] = '0' + (n % 10);
+		buffer[len++] = '0' + (n % 10);
 		n /= 10;
 	}
 	ft_reverse(buffer, len);
@@ -123,6 +101,7 @@ char	*ft_itoa(int n)
 	return (result);
 }
 
+/*
 #include <stdio.h>
 #include <limits.h>
 #include <string.h>
@@ -171,3 +150,4 @@ int	main()
 
 	return (0);
 }
+*/
