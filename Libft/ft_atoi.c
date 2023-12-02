@@ -6,7 +6,7 @@
 /*   By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 15:36:10 by vketteni          #+#    #+#             */
-/*   Updated: 2023/11/27 14:14:27 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/12/01 13:44:10 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -17,8 +17,8 @@ int	ft_atoi(const char *nptr)
 	int	is_negative;
 	int	result;
 
-	while(*nptr == ' ' || (*nptr >= 9 && *nptr <= 13))
-		nptr++;	
+	while (*nptr == ' ' || (*nptr >= 9 && *nptr <= 13))
+		nptr++;
 	if (ft_strncmp((char *)nptr, "2147483648", 10) == 0)
 		return (INT_MIN);
 	is_negative = 0;
@@ -27,16 +27,15 @@ int	ft_atoi(const char *nptr)
 		if (*nptr == '-')
 			is_negative = 1;
 		nptr++;
-	}	
+	}
 	result = 0;
 	while (ft_isdigit(*nptr))
-    {
-        result *= 10;
-        result += (*(nptr++) - '0');
-    }
+	{
+		result *= 10;
+		result += (*(nptr++) - '0');
+	}
 	return (result * (1 + (is_negative * -2)));
 }
-
 /*
 #include <stdio.h>
 #include <stdlib.h>
@@ -59,8 +58,10 @@ int main(void)
 		ft_strlcpy(nbr_buffer, whitespace, buffer_size);
 		int result = ft_atoi(nbr_buffer);
 		int expected = 1;
-		printf("Testing string with escape characters in front of the digits.\n");
-        printf("Result: %d, Expected: %d, Pass: %s\n\n", result, expected, result == expected ? "Yes" : "No");
+		printf("Testing string with escape characters in front of the digits."
+			   "\n");
+        printf("Result: %d, Expected: %d, Pass: %s\n\n"
+			   , result, expected, result == expected ? "Yes" : "No");
 	}
 
 	// Testing negative number
@@ -71,7 +72,8 @@ int main(void)
 		int result = ft_atoi(nbr_buffer);
 		int expected = -42;
 		printf("Testing negative number\n");
-		printf("Result: %d, Expected: %d, Pass: %s\n\n", result, expected, result == expected ? "Yes" : "No");
+		printf("Result: %d, Expected: %d, Pass: %s\n\n",
+			   result, expected, result == expected ? "Yes" : "No");
 	}
 
 	// Testing positive number
@@ -82,7 +84,8 @@ int main(void)
 		int result = ft_atoi(nbr_buffer);
 		int expected = 123;
 		printf("Testing positive number\n");
-		printf("Result: %d, Expected: %d, Pass: %s\n\n", result, expected, result == expected ? "Yes" : "No");
+		printf("Result: %d, Expected: %d, Pass: %s\n\n",
+			   result, expected, result == expected ? "Yes" : "No");
 	}
 
 	// Testing integer min
@@ -93,7 +96,8 @@ int main(void)
 		int result = ft_atoi(nbr_buffer);
 		int expected = -2147483648;
 		printf("Testing integer min\n");
-		printf("Result: %d, Expected: %d, Pass: %s\n\n", result, expected, result == expected ? "Yes" : "No");
+		printf("Result: %d, Expected: %d, Pass: %s\n\n",
+			   result, expected, result == expected ? "Yes" : "No");
 	}
 
 	// Testing integer max
@@ -104,7 +108,8 @@ int main(void)
 		int result = ft_atoi(nbr_buffer);
 		int expected = 2147483647;
 		printf("Testing integer max\n");
-		printf("Result: %d, Expected: %d, Pass: %s\n\n", result, expected, result == expected ? "Yes" : "No");
+		printf("Result: %d, Expected: %d, Pass: %s\n\n",
+			   result, expected, result == expected ? "Yes" : "No");
 	}
 
 	// Testing bad char at the start
@@ -113,9 +118,10 @@ int main(void)
 		char bad_start[] = "abc123";
 		ft_strlcpy(nbr_buffer, bad_start, buffer_size);
 		int result = ft_atoi(nbr_buffer);
-		int expected = 0; // Expected to be 0 since the conversion stops at the non-numeric character.
+		int expected = 0;
 		printf("Testing bad char at the start.\n");
-		printf("Result: %d, Expected: %d, Pass: %s\n\n", result, expected, result == expected ? "Yes" : "No");
+		printf("Result: %d, Expected: %d, Pass: %s\n\n",
+			   result, expected, result == expected ? "Yes" : "No");
 	}
 
 	// Testing bad char after whitespace
@@ -126,7 +132,8 @@ int main(void)
 		int result = ft_atoi(nbr_buffer);
 		int expected = 0;
 		printf("Testing bad char after whitespace.\n");
-		printf("Result: %d, Expected: %d, Pass: %s\n\n", result, expected, result == expected ? "Yes" : "No");
+		printf("Result: %d, Expected: %d, Pass: %s\n\n",
+			   result, expected, result == expected ? "Yes" : "No");
 	}
 
 	// Testing bad char after sign
@@ -137,7 +144,8 @@ int main(void)
 		int result = ft_atoi(nbr_buffer);
 		int expected = 0;
 		printf("Testing bad char after sign.\n");
-		printf("Result: %d, Expected: %d, Pass: %s\n\n", result, expected, result == expected ? "Yes" : "No");
+		printf("Result: %d, Expected: %d, Pass: %s\n\n",
+			   result, expected, result == expected ? "Yes" : "No");
 	}
 
 	// Testing bad char after number
@@ -148,11 +156,11 @@ int main(void)
 		int result = ft_atoi(nbr_buffer);
 		int expected = 123; // Expected to stop conversion at 'x'.
         printf("Testing bad char after number.\n");
-		printf("Result: %d, Expected: %d, Pass: %s\n\n", result, expected, result == expected ? "Yes" : "No");
+		printf("Result: %d, Expected: %d, Pass: %s\n\n",
+			   result, expected, result == expected ? "Yes" : "No");
 	}
 
 	free(nbr_buffer);
 	return (0);
 }
-
 */

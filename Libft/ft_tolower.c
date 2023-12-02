@@ -6,13 +6,13 @@
 /*   By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 13:01:09 by vketteni          #+#    #+#             */
-/*   Updated: 2023/11/16 13:03:57 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/12/01 12:36:55 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_tolower(unsigned int c)
 {
-        if (c >= 'A' && c <= 'Z')
-                c += ('a' - 'A');
+	if (c >= 'A' && c <= 'Z')
+		c += ('a' - 'A');
 	return (c);
 }

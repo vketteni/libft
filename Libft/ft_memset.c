@@ -6,16 +6,17 @@
 /*   By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 13:58:49 by vketteni          #+#    #+#             */
-/*   Updated: 2023/11/26 15:39:38 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/12/01 12:54:04 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
 
-void *ft_memset(void *s, int c, size_t size)
+void	*ft_memset(void *s, int c, size_t size)
 {
-	char *p;
+	char	*p;
+
 	p = s;
-	while(size--)
+	while (size--)
 		*p++ = (unsigned char) c;
 	return (s);
 }
@@ -29,7 +30,8 @@ int main() {
     // Fill str with 'A' for the first 10 characters
     memset(str1, 'A', 10);
 
-    // Null-terminate the string manually since memset doesn't add a null terminator
+    // Null-terminate the string manually
+    // since memset doesn't add a null terminator
     str1[10] = '\0';
 
     // Print the result

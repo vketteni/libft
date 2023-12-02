@@ -6,10 +6,11 @@
 /*   By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 13:49:56 by vketteni          #+#    #+#             */
-/*   Updated: 2023/11/27 14:03:40 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/12/01 13:41:30 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
+
 int	ft_strncmp(char *s1, char *s2, size_t n)
 {
 	while ((*s1 || *s2) && n > 0)

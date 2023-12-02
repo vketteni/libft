@@ -6,11 +6,11 @@
 /*   By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 13:20:04 by vketteni          #+#    #+#             */
-/*   Updated: 2023/11/14 13:33:45 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/12/01 13:18:17 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isprint(unsigned int c)
+int	ft_isprint(unsigned int c)
 {
 	if (c >= 32 && c <= 126)
 		return (1);

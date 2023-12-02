@@ -6,7 +6,7 @@
 /*   By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 13:51:32 by vketteni          #+#    #+#             */
-/*   Updated: 2023/11/21 18:21:52 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/12/01 14:49:25 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -14,7 +14,7 @@
 
 static char	*ft_add_negative_sign(char *n_in_ascii, size_t len)
 {
-	size_t last_index;
+	size_t	last_index;
 
 	last_index = len - 1;
 	while (0 < last_index--)
@@ -28,7 +28,7 @@ static char	*ft_get_nbr_buffer(long n, int is_negative)
 	char	*arr;
 	size_t	len;
 
-	len  = 0;
+	len = 0;
 	while (n)
 	{
 		len++;
@@ -36,7 +36,8 @@ static char	*ft_get_nbr_buffer(long n, int is_negative)
 	}
 	if (is_negative)
 		len++;
-	if (!(arr = ft_calloc(len + 1, sizeof(char))))
+	arr = ft_calloc(len + 1, sizeof(char));
+	if (!arr)
 		return (0);
 	arr[len] = '\0';
 	return (arr);
@@ -63,10 +64,11 @@ static void	*ft_reverse(void *s, size_t len)
 
 char	*ft_itoa_conversion(long n, int is_negative)
 {
-	char *buffer;
+	char	*buffer;
 	size_t	len;
 
-	if (!(buffer = ft_get_nbr_buffer(n, is_negative)))
+	buffer = ft_get_nbr_buffer(n, is_negative);
+	if (!buffer)
 		return (0);
 	len = 0;
 	while (n > 0)
@@ -83,26 +85,25 @@ char	*ft_itoa_conversion(long n, int is_negative)
 char	*ft_itoa(int n)
 {
 	char	*result;
-	int	is_negative;
+	int		is_negative;
 	long	nbr;
 
 	nbr = (long)n;
-	if (nbr == 0) {
+	if (nbr == 0)
 		return (ft_strdup("0"));
-	}
 	is_negative = 0;
 	if (nbr < 0)
 	{
 		is_negative = 1;
 		nbr = -nbr;
 	}
-	if (!(result = ft_itoa_conversion(nbr, is_negative)))
+	result = ft_itoa_conversion(nbr, is_negative);
+	if (!result)
 		return (0);
 	return (result);
 }
 
-/*
-#include <stdio.h>
+/*#include <stdio.h>
 #include <limits.h>
 #include <string.h>
 
@@ -111,41 +112,47 @@ int	main()
 	char	*result;
 	int n;
 	char *expected;
-	// gcc -g -o my_program ft_itoa.c ft_calloc.c ft_strdup.c ft_memset.c ft_strlen.c ft_strlcpy.c
+	// gcc -g -o my_program
+	// ft_itoa.c ft_calloc.c ft_strdup.c ft_memset.c ft_strlen.c ft_strlcpy.c
 	// char	*ft_itoa(int n)
 	n = -9;
 	expected = "-9";
 	printf("Test Case 1: Testing negative int (%d)\n", n);
 	result = ft_itoa(n);
-	printf("Expected:\t'%s'\nResult:\t\t'%s'\nPass:\t\t%s\n", expected, result, strcmp(expected, result) == 0 ? "Yes" : "No");
+	printf("Expected:\t'%s'\nResult:\t\t'%s'\nPass:\t\t%s\n",
+		   expected, result, strcmp(expected, result) == 0 ? "Yes" : "No");
 	printf("\n\n");
 
 	n = 9;
 	expected = "9";
 	printf("Test Case 2: Testing positive int (%d)\n", n);
 	result = ft_itoa(n);
-	printf("Expected:\t'%s'\nResult:\t\t'%s'\nPass:\t\t%s\n", expected, result, strcmp(expected, result) == 0 ? "Yes" : "No");
+	printf("Expected:\t'%s'\nResult:\t\t'%s'\nPass:\t\t%s\n",
+		   expected, result, strcmp(expected, result) == 0 ? "Yes" : "No");
 	printf("\n");
 
 	n = INT_MAX;
 	expected = "2147483647";
 	printf("Test Case 3: Testing int max (%d)\n", n);
 	result = ft_itoa(n);
-	printf("Expected:\t'%s'\nResult:\t\t'%s'\nPass:\t\t%s\n", expected, result, strcmp(expected, result) == 0 ? "Yes" : "No");
+	printf("Expected:\t'%s'\nResult:\t\t'%s'\nPass:\t\t%s\n",
+		   expected, result, strcmp(expected, result) == 0 ? "Yes" : "No");
 	printf("\n");
 
 	n = INT_MIN;
 	expected = "-2147483648";
 	printf("Test Case 4: Testing int min (%d)\n", n);
 	result = ft_itoa(n);
-	printf("Expected:\t'%s'\nResult:\t\t'%s'\nPass:\t\t%s\n", expected, result, strcmp(expected, result) == 0 ? "Yes" : "No");
+	printf("Expected:\t'%s'\nResult:\t\t'%s'\nPass:\t\t%s\n",
+		   expected, result, strcmp(expected, result) == 0 ? "Yes" : "No");
 	printf("\n");
 
 	n = 0;
 	expected = "0";
 	printf("Test Case 5: Testing zero (%d)\n", n);
 	result = ft_itoa(n);
-	printf("Expected:\t'%s'\nResult:\t\t'%s'\nPass:\t\t%s\n", expected, result, strcmp(expected, result) == 0 ? "Yes" : "No");
+	printf("Expected:\t'%s'\nResult:\t\t'%s'\nPass:\t\t%s\n",
+		   expected, result, strcmp(expected, result) == 0 ? "Yes" : "No");
 	printf("\n");
 
 	return (0);

@@ -6,11 +6,12 @@
 /*   By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 14:58:09 by vketteni          #+#    #+#             */
-/*   Updated: 2023/11/16 15:35:06 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/12/01 12:51:29 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stddef.h>
 #include <stdlib.h>
+
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;

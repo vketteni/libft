@@ -6,22 +6,20 @@
 /*   By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 12:25:20 by vketteni          #+#    #+#             */
-/*   Updated: 2023/11/27 14:14:45 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/12/01 14:40:27 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-# include "libft.h"
+#include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dst_size)
 {
-	size_t dst_len;
-	size_t src_len;
-	size_t space_left;
-	size_t chars_to_copy;
+	size_t	dst_len;
+	size_t	src_len;
+	size_t	space_left;
+	size_t	chars_to_copy;
 
 	src_len = ft_strlen(src);
 	dst_len = ft_strlen(dst);
-
 	if (dst_size <= dst_len)
 		return (dst_size + src_len);
 	space_left = dst_size - dst_len - 1;
@@ -32,7 +30,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dst_size)
 	dst[dst_len + chars_to_copy] = 0;
 	return (dst_len + src_len);
 }
-
 /*
 #include <bsd/string.h>
 #include <stdio.h>
@@ -46,7 +43,8 @@ int	main(void)
 		return (0);
 	ft_memset(dst, 0, buffer_size);
 	ft_memset(dst, 'r', 6);
-// Testing the function when there is enough space in the destination buffer to ccat the source string.
+// Testing the function when there is enough space in the destination buffer
+// to ccat the source string.
 	if (111)
 	{
 		dst[11] = 'a';
@@ -69,10 +67,12 @@ int	main(void)
 		write(1, dst, buffer_size);
 		write(1, "\n", 1);
 	}
-// Test when there is not enough space in the destination buffer to fully concatenate the source string.
+// Test when there is not enough space in the destination buffer to fully
+// concatenate the source string.
 	if (111)
 	{
-		printf("%ld\n", ft_strlcat(dst, "lorem ipsum dolor sit amet", buffer_size));
+		printf("%ld\n", ft_strlcat(dst, "lorem ipsum dolor sit amet",
+								   buffer_size));
 		write(1, dst, buffer_size);
 		write(1, "\n", 1);
 	}
@@ -83,28 +83,32 @@ int	main(void)
 		write(1, dst, buffer_size);
 		write(1, "\n", 1);
 	}
-// Test with a destination size of 1, which should have limited space for concatenation.
+// Test with a destination size of 1, which should have limited space for
+// concatenation.
 	if (111)
 	{
 		printf("%ld\n", ft_strlcat(dst, "lorem ipsum dolor sit amet", 1));
 		write(1, dst, buffer_size);
 		write(1, "\n", 1);
 	}
-// Testing when the destination buffer size is smaller than the source string length.
+// Testing when the destination buffer size is smaller than the source string
+// length.
 	if (111)
 	{
 		printf("%ld\n", ft_strlcat(dst, "lorem ipsum dolor sit amet", 5));
 		write(1, dst, buffer_size);
 		write(1, "\n", 1);
 	}
-// Testing when the destination buffer size is exactly equal to the source string length.
+// Testing when the destination buffer size is exactly equal to the source
+// string length.
 	if (111)
 	{
 		printf("%ld\n", ft_strlcat(dst, "lorem ipsum dolor sit amet", 6));
 		write(1, dst, buffer_size);
 		write(1, "\n", 1);
 	}
-// Testing when the destination buffer is almost full, leaving space for the null terminator.
+// Testing when the destination buffer is almost full, leaving space for the
+// null terminator.
 	if (111)
 	{
 		ft_memset(dst, 'r', 14);

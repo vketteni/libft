@@ -6,13 +6,15 @@
 /*   By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:44:46 by vketteni          #+#    #+#             */
-/*   Updated: 2023/11/14 12:50:06 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/12/01 12:46:25 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isalnum(unsigned int c)
+int	ft_isalnum(unsigned int c)
 {
-	if ((c >= '0' && c <= '9') || (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+	if ((c >= '0' && c <= '9')
+		|| (c >= 'a' && c <= 'z')
+		|| (c >= 'A' && c <= 'Z'))
 		return (1);
 	return (0);
 }

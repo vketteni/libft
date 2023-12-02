@@ -6,12 +6,12 @@
 /*   By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:15:49 by vketteni          #+#    #+#             */
-/*   Updated: 2023/11/20 11:14:38 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/12/01 13:20:23 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-# include "libft.h"
+#include "libft.h"
 
-int	ft_char_in_set(char const c, char const *set)
+static int	ft_char_in_set(char const c, char const *set)
 {
 	while (*set)
 	{
@@ -21,6 +21,7 @@ int	ft_char_in_set(char const c, char const *set)
 	}
 	return (0);
 }
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*trimmed_string;
@@ -35,11 +36,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 	start = (char *)s1;
 	while (*s1)
 		s1++;
-	while(*(s1 - 1) && ft_char_in_set(*(s1 - 1), set))
+	while (*(s1 - 1) && ft_char_in_set(*(s1 - 1), set))
 		s1--;
 	end = (char *)s1;
 	arr_size = end - start + 1;
-	if (!(trimmed_string = (char *)malloc(arr_size)))
+	trimmed_string = (char *)malloc(arr_size);
+	if (!trimmed_string)
 		return (0);
 	s1 = start;
 	while (s1 < end)
@@ -62,7 +64,8 @@ int	main(void)
 	const char *expected_1 = "Hello, World!";
 	char *result_1 = ft_strtrim(s1_1, set_1);
 	printf("Test Case 1: Testing trim from both sides.\n");
-	printf("Result:\t\t'%s'\nExpected:\t'%s'\nPass:\t\t%s\n\n", result_1, expected_1, strcmp(result_1, expected_1) == 0 ? "Yes" : "No");
+	printf("Result:\t\t'%s'\nExpected:\t'%s'\nPass:\t\t%s\n\n",
+		   result_1, expected_1, strcmp(result_1, expected_1) == 0 ? "Yes" : "No");
 
 	// Test Case 2: Testing trim from front
 	const char *s1_2 = "   Hello, World!";
@@ -70,7 +73,8 @@ int	main(void)
 	const char *expected_2 = "Hello, World!";
 	char *result_2 = ft_strtrim(s1_2, set_2);
 	printf("Test Case 2: Testing trim from front.\n");
-	printf("Result:\t\t'%s'\nExpected:\t'%s'\nPass:\t\t%s\n\n", result_2, expected_2, strcmp(result_2, expected_2) == 0 ? "Yes" : "No");
+	printf("Result:\t\t'%s'\nExpected:\t'%s'\nPass:\t\t%s\n\n",
+		   result_2, expected_2, strcmp(result_2, expected_2) == 0 ? "Yes" : "No");
 
 	// Test Case 3: Testing trim from back
 	const char *s1_3 = "Hello, World!   ";
@@ -78,7 +82,8 @@ int	main(void)
 	const char *expected_3 = "Hello, World!";
 	char *result_3 = ft_strtrim(s1_3, set_3);
 	printf("Test Case 3: Testing trim from back.\n");
-	printf("Result:\t\t'%s'\nExpected:\t'%s'\nPass:\t\t%s\n\n", result_3, expected_3, strcmp(result_3, expected_3) == 0 ? "Yes" : "No");
+	printf("Result:\t\t'%s'\nExpected:\t'%s'\nPass:\t\t%s\n\n",
+		   result_3, expected_3, strcmp(result_3, expected_3) == 0 ? "Yes" : "No");
 
 	// Test Case 4: Testing trim of empty string
 	const char *s1_4 = "";
@@ -86,7 +91,8 @@ int	main(void)
 	const char *expected_4 = "";
 	char *result_4 = ft_strtrim(s1_4, set_4);
 	printf("Test Case 4: Testing trim of empty string.\n");
-	printf("Result:\t\t'%s'\nExpected:\t'%s'\nPass:\t\t%s\n\n", result_4, expected_4, strcmp(result_4, expected_4) == 0 ? "Yes" : "No");
+	printf("Result:\t\t'%s'\nExpected:\t'%s'\nPass:\t\t%s\n\n",
+		   result_4, expected_4, strcmp(result_4, expected_4) == 0 ? "Yes" : "No");
 
 	// Test Case 5: Testing trim with empty set
 	const char *s1_5 = "Hello, World!";
@@ -94,7 +100,8 @@ int	main(void)
 	const char *expected_5 = "Hello, World!";
 	char *result_5 = ft_strtrim(s1_5, set_5);
 	printf("Test Case 5: Testing trim with empty set.\n");
-	printf("Result:\t\t'%s'\nExpected:\t'%s'\nPass:\t\t%s\n\n", result_5, expected_5, strcmp(result_5, expected_5) == 0 ? "Yes" : "No");
+	printf("Result:\t\t'%s'\nExpected:\t'%s'\nPass:\t\t%s\n\n",
+		   result_5, expected_5, strcmp(result_5, expected_5) == 0 ? "Yes" : "No");
 
 	// Test Case 6: Testing trim with no match in set
 	const char *s1_6 = "Hello, World!";
@@ -102,7 +109,8 @@ int	main(void)
 	const char *expected_6 = "Hello, World!";
 	char *result_6 = ft_strtrim(s1_6, set_6);
 	printf("Test Case 6: Testing trim with no match in set.\n");
-	printf("Result:\t\t'%s'\nExpected:\t'%s'\nPass:\t\t%s\n\n", result_6, expected_6, strcmp(result_6, expected_6) == 0 ? "Yes" : "No");
+	printf("Result:\t\t'%s'\nExpected:\t'%s'\nPass:\t\t%s\n\n",
+		   result_6, expected_6, strcmp(result_6, expected_6) == 0 ? "Yes" : "No");
 
 	// Test Case 7: Testing trim with match on every char in string.
 	const char	*s1_7 = "XXAAXXAA";
@@ -115,5 +123,4 @@ int	main(void)
 	printf("Passed:\t\t'%s'\n", strcmp("", result_7) == 0 ? "Yes" : "No");
 
 	return 0;
-}
-*/
+}*/

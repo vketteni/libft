@@ -1,21 +1,33 @@
-#include    <stdlib.h>
-#include    "libft.h"
-void    ft_lstclear(t_list **lst, void (*del)(void*))
-{
-    t_list  *current_node;
-    t_list  *tmp;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/01 13:16:13 by vketteni          #+#    #+#             */
+/*   Updated: 2023/12/01 13:18:02 by vketteni         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+#include <stdlib.h>
+#include "libft.h"
 
-    current_node = *lst;
-    
-    while (current_node != 0)
-    {
-        tmp  = current_node;
-        current_node = current_node->next;
-        del(tmp->content);
-        free(tmp);
-    }
-    *lst = 0;
+void	ft_lstclear(t_list **lst, void (*del)(void*))
+{
+	t_list	*current_node;
+	t_list	*tmp;
+
+	current_node = *lst;
+	while (current_node != 0)
+	{
+		tmp = current_node;
+		current_node = current_node->next;
+		del(tmp->content);
+		free(tmp);
+	}
+	*lst = 0;
 }
+
 /*
 
 #include <stdio.h>

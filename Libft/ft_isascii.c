@@ -6,11 +6,11 @@
 /*   By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 12:50:44 by vketteni          #+#    #+#             */
-/*   Updated: 2023/11/21 12:54:25 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/12/01 12:52:09 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isascii (int c)
+int	ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)
 		return (1);

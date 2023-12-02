@@ -6,7 +6,7 @@
 /*   By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 12:54:17 by vketteni          #+#    #+#             */
-/*   Updated: 2023/11/16 13:02:24 by vketteni         ###   ########.fr       */
+/*   Updated: 2023/12/01 13:14:10 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@ int	ft_toupper(unsigned int c)
 {
 	if (c >= 'a' && c <= 'z')
 		c -= ('a' - 'A');
-	return (c);	
+	return (c);
 }

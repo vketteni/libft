@@ -1,7 +1,7 @@
 NAME = libft.a
 CFLAGS = -Wall -Wextra -Werror
 
-CC = gcc 
+CC = cc 
 
 SRC = ft_tolower.c ft_isdigit.c ft_strlen.c ft_isalnum.c ft_strrchr.c \
 ft_strmapi.c ft_memcpy.c ft_strjoin.c ft_strnstr.c ft_isascii.c \
@@ -25,9 +25,6 @@ $(NAME):	$(OBJ)
 
 bonus:  $(OBJ) $(OBJ_BONUS)
 	ar -rcs $(NAME) $(OBJ) $(OBJ_BONUS)
-
-$(OBJ):
-	$(CC) $(CFLAGS) -c $(SRC)
 
 %.o:	%.c libft.h
 	$(CC) $(CFLAGS) -c $< -o $@
