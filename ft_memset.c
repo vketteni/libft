@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vketteni <vketteni@student.42berlin.d      +#+  +:+       +#+        */
+/*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 13:58:49 by vketteni          #+#    #+#             */
-/*   Updated: 2023/12/01 12:54:04 by vketteni         ###   ########.fr       */
+/*   Updated: 2024/01/15 09:37:03 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <stddef.h>
 
 void	*ft_memset(void *s, int c, size_t size)
