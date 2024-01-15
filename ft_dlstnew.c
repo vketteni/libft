@@ -1,39 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_dlstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/01 13:31:44 by vketteni          #+#    #+#             */
-/*   Updated: 2024/01/15 09:37:32 by vketteni         ###   ########.fr       */
+/*   Created: 2023/12/01 13:05:09 by vketteni          #+#    #+#             */
+/*   Updated: 2024/01/15 09:37:28 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_dlist	*ft_dlstnew(void *content)
 {
-	t_list	*result;
-	t_list	*new;
-	t_list	*tmp;
+	t_dlist	*result;
 
-	result = (void *)0;
-	while (lst != 0)
-	{
-		new = ft_lstnew(f(lst->content));
-		if (new == 0)
-		{
-			while (result != 0)
-			{
-				tmp = result;
-				result = (result)->next;
-				ft_lstdelone(tmp, del);
-			}
-			return (0);
-		}
-		ft_lstadd_back(&result, new);
-		lst = lst->next;
-	}
+	result = (t_dlist *)malloc(sizeof(t_dlist));
+	if (result == 0)
+		return (0);
+	result->content = content;
+	result->next = 0;
+	result->prev = 0;
 	return (result);
 }

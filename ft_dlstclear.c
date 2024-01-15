@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_dlstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,10 +13,10 @@
 #include <stdlib.h>
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+void	ft_dlstclear(t_dlist **lst, void (*del)(void*))
 {
-	t_list	*current_node;
-	t_list	*tmp;
+	t_dlist	*current_node;
+	t_dlist	*tmp;
 
 	current_node = *lst;
 	while (current_node != 0)
@@ -40,7 +40,7 @@ void ft_del(void *content)
         free(content);
 }
 
-void print_result(t_list **lstelem_refs, size_t len)
+void print_result(t_dlist **lstelem_refs, size_t len)
 {
     int passed = 1;
     int i = 0;
@@ -62,7 +62,7 @@ void print_result(t_list **lstelem_refs, size_t len)
     printf("Passed:\t\t%s\n", passed ? "Yes" : "No");
 }
 
-size_t  ft_lstlen(t_list *lst)
+size_t  ft_dlstlen(t_dlist *lst)
 {
     size_t i;
 
@@ -75,13 +75,13 @@ size_t  ft_lstlen(t_list *lst)
     return (i);
 }
 
-t_list  **get_element_references(t_list *lst)
+t_dlist  **get_element_references(t_dlist *lst)
 {
     int i;
     size_t  len;
 
-    len = ft_lstlen(lst);
-    t_list **element_refs = malloc(len * sizeof(t_list *));
+    len = ft_dlstlen(lst);
+    t_dlist **element_refs = malloc(len * sizeof(t_dlist *));
     if (element_refs == NULL)
     {
         perror("Memory allocation failed");
@@ -98,21 +98,21 @@ t_list  **get_element_references(t_list *lst)
 
 int main(void)
 {
-    //  void    ft_lstclear(t_list **lst, void (*del)(void*))
+    //  void    ft_dlstclear(t_dlist **lst, void (*del)(void*))
     printf("Test Case 1: Testing clear empty list\n");
-    t_list  *lst_1 = 0;
-    size_t len_1 = ft_lstlen(lst_1);
+    t_dlist  *lst_1 = 0;
+    size_t len_1 = ft_dlstlen(lst_1);
 
-    t_list  **lstelem_refs_1 = get_element_references(lst_1);
-    ft_lstclear(&lst_1, ft_del);
+    t_dlist  **lstelem_refs_1 = get_element_references(lst_1);
+    ft_dlstclear(&lst_1, ft_del);
     print_result(lstelem_refs_1, len_1);
 
     printf("Test Case 2: Testing clear populated list\n");
-    t_list  *lst_2 = ft_lstnew(ft_strdup("1"));
-    size_t len_2 = ft_lstlen(lst_2);
+    t_dlist  *lst_2 = ft_dlstnew(ft_strdup("1"));
+    size_t len_2 = ft_dlstlen(lst_2);
 
-    t_list  **lstelem_refs_2 = get_element_references(lst_2);
-    ft_lstclear(&lst_2, ft_del);
+    t_dlist  **lstelem_refs_2 = get_element_references(lst_2);
+    ft_dlstclear(&lst_2, ft_del);
     print_result(lstelem_refs_2, len_2);
 
     free(lstelem_refs_1);

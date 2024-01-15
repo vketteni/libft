@@ -1,25 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_dlstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/01 13:24:24 by vketteni          #+#    #+#             */
-/*   Updated: 2024/01/15 09:37:36 by vketteni         ###   ########.fr       */
+/*   Created: 2023/12/01 13:31:44 by vketteni          #+#    #+#             */
+/*   Updated: 2024/01/15 09:37:32 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+t_dlist	*ft_dlstmap(t_dlist *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*current_node;
+	t_dlist	*result;
+	t_dlist	*new;
+	t_dlist	*tmp;
 
-	if (lst == 0)
-		return (0);
-	current_node = lst;
-	while (current_node->next != 0)
-		current_node = current_node->next;
-	return (current_node);
+	result = (void *)0;
+	while (lst != 0)
+	{
+		new = ft_dlstnew(f(lst->content));
+		if (new == 0)
+		{
+			while (result != 0)
+			{
+				tmp = result;
+				result = (result)->next;
+				ft_dlstdelone(tmp, del);
+			}
+			return (0);
+		}
+		ft_dlstadd_back(&result, new);
+		lst = lst->next;
+	}
+	return (result);
 }

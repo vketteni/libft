@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_dlstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/01 13:14:23 by vketteni          #+#    #+#             */
-/*   Updated: 2024/01/15 09:37:39 by vketteni         ###   ########.fr       */
+/*   Created: 2023/12/01 13:24:24 by vketteni          #+#    #+#             */
+/*   Updated: 2024/01/15 09:37:36 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+t_dlist	*ft_dlstlast(t_dlist *lst)
 {
-	t_list	*current_node;
+	t_dlist	*current_node;
 
+	if (lst == 0)
+		return (0);
 	current_node = lst;
-	while (current_node != 0)
-	{
-		f(current_node->content);
+	while (current_node->next != 0)
 		current_node = current_node->next;
-	}
+	return (current_node);
 }
