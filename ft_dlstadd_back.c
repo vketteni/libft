@@ -27,6 +27,7 @@ t_dlist **ft_dlstadd_back(t_dlist **lst, t_dlist *new)
 			current_node = current_node->next;
 		current_node->next = new;
         new->prev = current_node;
+        new->next = NULL;
 	}
     return (lst);
 }

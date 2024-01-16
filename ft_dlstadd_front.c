@@ -23,10 +23,11 @@ t_dlist	**ft_dlstadd_front(t_dlist **lst, t_dlist *new)
 	else
 	{
 		current_node = *lst;
-		while (current_node->prev != 0)
+		while (current_node->prev != NULL)
 			current_node = current_node->prev;
 		current_node->prev = new;
 		new->next = current_node;
+		new->prev = NULL;
 	}
 	return (lst);
 }
