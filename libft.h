@@ -6,7 +6,7 @@
 /*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 13:19:54 by vketteni          #+#    #+#             */
-/*   Updated: 2024/01/15 09:59:45 by vketteni         ###   ########.fr       */
+/*   Updated: 2024/01/20 16:49:58 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 typedef struct s_dlist
 {
 	void			*content;
+	struct s_dlist	*upper_bound;
+	struct s_dlist	*lower_bound;
 	struct s_dlist	*next;
 	struct s_dlist	*prev;
 }					t_dlist;
