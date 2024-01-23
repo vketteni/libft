@@ -6,7 +6,7 @@
 /*   By: vketteni <vketteni@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 13:19:54 by vketteni          #+#    #+#             */
-/*   Updated: 2024/01/20 20:32:26 by vketteni         ###   ########.fr       */
+/*   Updated: 2024/01/23 13:16:32 by vketteni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ size_t				ft_strlcat(char *dst, const char *src, size_t dst_size);
 size_t				ft_strlcpy(char *dst, const char *src, size_t dst_size);
 size_t				ft_strnstr(const char *big, const char *little, size_t len);
 
+void				*ft_calloc(size_t nmemb, size_t size);
 void				ft_bzero(void *s, size_t n);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
 void				*ft_memmove(void *dst, const void *src, size_t n);

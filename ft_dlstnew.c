@@ -23,5 +23,8 @@ t_dlist	*ft_dlstnew(void *content)
 	result->content = content;
 	result->next = 0;
 	result->prev = 0;
+	result->median = 0;
+	result->next_lowest = 0;
+	result->next_highest = 0;
 	return (result);
 }

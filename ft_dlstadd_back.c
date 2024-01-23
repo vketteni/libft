@@ -17,7 +17,7 @@ t_dlist **ft_dlstadd_back(t_dlist **lst, t_dlist *new)
 	t_dlist	*current_node;
 
 	if (lst == 0 || new == 0)
-		return ;
+		return (0);
 	if (*lst == 0)
 		*lst = new;
 	else
